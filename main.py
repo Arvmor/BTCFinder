@@ -20,7 +20,7 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome('chromedriver', options=chrome_options)
 
-#download random hashes.txt file
+#downloads a .txt file which contains fresh random hashes 
 url = "https://onlinehashtools.com/generate-random-sha256-hash?&count=200&format=%2A&hex-base=true&randomcase=true"
 driver.get(url)
 time.sleep(1)
@@ -51,7 +51,7 @@ for line in file:
     print("public: "+str(public))
     print("priv8 : "+driver.find_element(By.XPATH,
                                          '//*[@id="detailprivwif"]').text)
-    # checking btc wallet balance
+    # checking the Wallet balance
     url = "https://www.blockchain.com/btc/address/"+str(public)
     driver.execute_script("window.open('');")
     time.sleep(1)
@@ -66,5 +66,5 @@ for line in file:
         print("*****Empty Balance******")
     driver.close()
     driver.switch_to.window(driver.window_handles[1])
-os.remove("/content/output-onlinehashtools.txt") # file path
+os.remove("/content/output-onlinehashtools.txt") # replace your download directory path   <==============
 driver.close()
