@@ -21,7 +21,7 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome('chromedriver', options=chrome_options)
 
 #download random hashes.txt file
-url = "https://onlinehashtools.com/generate-random-sha256-hash?&count=1000&format=%2A&hex-base=true&randomcase=true"
+url = "https://onlinehashtools.com/generate-random-sha256-hash?&count=200&format=%2A&hex-base=true&randomcase=true"
 driver.get(url)
 time.sleep(1)
 driver.find_element(
